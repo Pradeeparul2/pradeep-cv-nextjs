@@ -35,6 +35,16 @@ const ThirdPartyScripts = () => {
                   gtag('config', 'G-55M3Q1F8T7');`,
         }}
       ></Script>
+      <Script
+        id="msClarity"
+        dangerouslySetInnerHTML={{
+          __html: `(function(c,l,a,r,i,t,y){
+                        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                    })(window, document, "clarity", "script", "pasp9jy8z7");`,
+        }}
+      ></Script>
       {/* <Script src="js/jquery.googlemap.js" strategy="afterInteractive" /> */}
       <Script src="js/validator.js" strategy="afterInteractive" />
       <Script src="js/main.js" strategy="afterInteractive" />
