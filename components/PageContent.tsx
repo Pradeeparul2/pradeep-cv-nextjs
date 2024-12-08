@@ -27,18 +27,21 @@ const PageContent = () => {
     outClass: "animated-section-moveToLeft",
   });
 
-  const animEndEventNames: any = {
-    WebkitAnimation: "webkitAnimationEnd",
-    OAnimation: "oAnimationEnd",
-    msAnimation: "MSAnimationEnd",
-    animation: "animationend",
-  };
+  // const animEndEventNames: any = {
+  //   WebkitAnimation: "webkitAnimationEnd",
+  //   OAnimation: "oAnimationEnd",
+  //   msAnimation: "MSAnimationEnd",
+  //   animation: "animationend",
+  // };
 
-  const animEndEventName: any = "animationend";
+  const animEndEventName = "animationend";
 
-  const handleMenuClick = (e: any, menu: MenuItem) => {
+  const handleMenuClick: (e: React.MouseEvent, menu: MenuItem) => void = (
+    e: React.MouseEvent,
+    menu: MenuItem
+  ) => {
     e.preventDefault();
-    if (menu.href === currentPage.split("#")[1]) return;
+    if (isAnimating || menu.href === currentPage.split("#")[1]) return;
     setIsAnimating(true);
     // 67 - Total amimations
     const randomAnimation = Math.floor(Math.random() * 67) + 1;
@@ -77,26 +80,26 @@ const PageContent = () => {
   ];
 
   useEffect(() => {
-    var currentSection = document.querySelector(
+    const currentSection = document.querySelector(
       `section[data-id="${currentPage.split("#")[1]}"]`
     );
-    var prevSection = document.querySelector(
+    const prevSection = document.querySelector(
       `section:not([data-id="${currentPage.split("#")[1]}"]).section-active`
     );
 
-    let inAmination: any = "";
-    if (animationClasses?.inClass.split(" ").length > 1) {
-      inAmination = [...animationClasses?.inClass.split(" ")];
-    } else {
-      inAmination = animationClasses?.inClass;
-    }
+    // let inAmination: any = "";
+    // if (animationClasses?.inClass.split(" ").length > 1) {
+    //   inAmination = [...animationClasses?.inClass.split(" ")];
+    // } else {
+    //   inAmination = animationClasses?.inClass;
+    // }
 
-    let outAmination: any = "";
-    if (animationClasses?.outClass.split(" ").length > 1) {
-      outAmination = [...animationClasses?.outClass.split(" ")];
-    } else {
-      outAmination = animationClasses?.outClass;
-    }
+    // let outAmination: any = "";
+    // if (animationClasses?.outClass.split(" ").length > 1) {
+    //   outAmination = [...animationClasses?.outClass.split(" ")];
+    // } else {
+    //   outAmination = animationClasses?.outClass;
+    // }
 
     const onAnimationEnd = () => {
       setIsAnimating(false);

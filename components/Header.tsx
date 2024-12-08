@@ -2,7 +2,16 @@ import React from "react";
 import Link from "next/link";
 import { MenuItem } from "@/types/MainManuTypes";
 
-const Header = (props: any) => {
+interface HeaderProps {
+  MainMenu: Array<MenuItem>;
+  currentPage?: string; // Optional prop
+  handleMenuClick: (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    menu: MenuItem
+  ) => void;
+}
+
+const Header = (props: HeaderProps) => {
   const { MainMenu, currentPage, handleMenuClick } = props;
   return (
     <header id="site_header" className="header mobile-menu-hide">
@@ -18,10 +27,15 @@ const Header = (props: any) => {
       <ul className="main-menu">
         {MainMenu.map((menu: MenuItem) => (
           <li
-            className={currentPage == menu.id ? "active" : ""}
+            className={currentPage == menu.href ? "active" : ""}
             key={menu.id.toString()}
           >
-            <a className="nav-anim" onClick={(e) => handleMenuClick(e, menu)}>
+            <a
+              className="nav-anim"
+              onClick={(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) =>
+                handleMenuClick(e, menu)
+              }
+            >
               <span className={`menu-icon lnr ${menu.icon}`}></span>
               <span className="link-text">{menu.name}</span>
             </a>

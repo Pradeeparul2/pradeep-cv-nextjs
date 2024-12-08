@@ -1,8 +1,8 @@
 export type MenuItem = {
   id: Number;
-  name: String;
-  icon: String;
-  href: String;
+  name: string;
+  icon: string;
+  href: string;
 };
 
 export type MainMenuTyes = Array<MenuItem>;
