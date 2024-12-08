@@ -21,6 +21,20 @@ const ThirdPartyScripts = () => {
         src="js/jquery.magnific-popup.min.js"
         strategy="afterInteractive"
       />
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-55M3Q1F8T7"
+        strategy="afterInteractive"
+      />
+      <Script
+        id="gtag"
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-55M3Q1F8T7');`,
+        }}
+      ></Script>
       {/* <Script src="js/jquery.googlemap.js" strategy="afterInteractive" /> */}
       <Script src="js/validator.js" strategy="afterInteractive" />
       <Script src="js/main.js" strategy="afterInteractive" />
