@@ -33,7 +33,7 @@ const ThirdPartyScripts = () => {
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
 
-                  gtag('config', ${config.gaId});`,
+                  gtag('config', '${config.gaId}');`,
         }}
       ></Script>
       <Script
@@ -43,7 +43,7 @@ const ThirdPartyScripts = () => {
                         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-                    })(window, document, "clarity", "script", ${config.msClarityId});`,
+                    })(window, document, "clarity", "script", '${config.msClarityId}');`,
         }}
       ></Script>
       {/* <Script src="js/jquery.googlemap.js" strategy="afterInteractive" /> */}
