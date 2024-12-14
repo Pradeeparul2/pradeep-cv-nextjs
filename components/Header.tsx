@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { MenuItem } from "@/types/MainManuTypes";
-
+import { SocialLinks } from "@/constants/SocialLinks";
+import Image from "next/image";
+import { mainImg } from "@/assets";
 interface HeaderProps {
   MainMenu: Array<MenuItem>;
   currentPage?: string; // Optional prop
@@ -17,7 +19,7 @@ const Header = (props: HeaderProps) => {
     <header id="site_header" className="header mobile-menu-hide">
       <div className="header-content">
         <div className="header-photo">
-          <img src="img/main_photo.jpg" alt="Pradeep Arul" />
+          <Image src={mainImg} alt="Pradeep Arul" />
         </div>
         <div className="header-titles">
           <h2>Pradeep Arul</h2>
@@ -45,27 +47,13 @@ const Header = (props: HeaderProps) => {
 
       <div className="social-links">
         <ul>
-          <li>
-            <Link
-              href="https://www.linkedin.com/in/pradeep-arul-19051994"
-              target="_blank"
-            >
-              <i className="fab fa-linkedin-in"></i>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="https://www.facebook.com/pradeep.mech.5680"
-              target="_blank"
-            >
-              <i className="fab fa-facebook-f"></i>
-            </Link>
-          </li>
-          <li>
-            <Link href="https://twitter.com/Pradeep2arul" target="_blank">
-              <i className="fab fa-twitter"></i>
-            </Link>
-          </li>
+          {SocialLinks.map((item) => (
+            <li key={item.id}>
+              <Link href={item.link} target="_blank">
+                <i className={`fab ${item.icon}`}></i>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
 
