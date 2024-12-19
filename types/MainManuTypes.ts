@@ -1,5 +1,5 @@
 export type MenuItem = {
-  id: Number;
+  id: number;
   name: string;
   icon: string;
   href: string;

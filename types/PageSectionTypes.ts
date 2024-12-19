@@ -1,7 +1,7 @@
 import React from "react";
 export type PageItem = {
-  id: Number;
-  dataId: String;
+  id: number;
+  dataId: string;
   node: React.ReactNode;
 };
 
